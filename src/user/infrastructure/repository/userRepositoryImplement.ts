@@ -11,7 +11,7 @@ export class UserRepositoryImplement implements IUserRepository {
   ) {}
 
   async createUser(user: User): Promise<User> {
-    return this.userRepository.create(user);
+    return this.userRepository.save(user);
   }
 
   async findByEmail(email: string): Promise<User> {

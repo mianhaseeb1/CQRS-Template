@@ -34,7 +34,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   app.useGlobalInterceptors(new LoggingInterceptor());
   app.useGlobalFilters(new HttpExceptionFilter());
-  app.setGlobalPrefix('v1');
+  // app.setGlobalPrefix('v1');
   setupSwagger(app);
   await app.listen(Config.PORT);
 }

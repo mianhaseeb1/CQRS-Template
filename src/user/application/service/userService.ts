@@ -11,7 +11,6 @@ export class UserService {
 
   async loginUser(userLoginDto: UserLoginDto): Promise<User> {
     let user = await this.userRepository.findByEmail(userLoginDto.email);
-
     if (!user) {
       const userDetails = {
         name: userLoginDto.name,
@@ -20,7 +19,8 @@ export class UserService {
         sub: userLoginDto.sub,
       };
       user = User.createUser(userDetails);
-      await this.userRepository.createUser(user);
+      const createdUser = await this.userRepository.createUser(user);
+      return createdUser;
     }
 
     return user;

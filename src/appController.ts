@@ -10,11 +10,9 @@ export class AppController {
     return;
   }
 
-  @HttpCode(HttpStatus.OK)
-  @ApiOkResponse()
-  @Get('/')
-  app(): string {
-    return 'Hello from Page MicroService';
+  @Get()
+  getRoot() {
+    return { message: 'Welcome to the API', version: 'v1' };
   }
 
   @HttpCode(HttpStatus.NO_CONTENT)
